@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV Text Extractor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>✨</text></svg>">
+</head>
+<body>
+  <div class="bg-float bg-float1"></div>
+  <div class="bg-float bg-float2"></div>
+  <div class="bg-float bg-float3"></div>
+  <header class="app-header header-box">
+    <div class="header-content">
+      <h1>CSV Text Extractor</h1>
+      <p class="subtitle">Upload a CSV, extract all text from column D, and copy or download it instantly.</p>
+    </div>
+  </header>
+  <main>
+    <section class="upload-section">
+      <div id="upload-area" class="upload-area" tabindex="0">
+        <div class="upload-icon">📁</div>
+        <div class="upload-instructions">Drop your CSV file here or <span class="browse-link">click to browse</span></div>
+        <div class="upload-supported">Supported columns: Speaker Name (A), Start Time (B), End Time (C), Text (D)</div>
+        <input type="file" id="file-input" accept=".csv" hidden />
+      </div>
+      <div id="filename-display" class="filename-display"></div>
+      <div class="button-row">
+        <button id="copy-btn" class="btn btn-purple" disabled><span>📋</span> Copy Text</button>
+        <button id="download-btn" class="btn btn-green" disabled><span>⬇️</span> Download .txt</button>
+      </div>
+      <div id="toast" class="toast" aria-live="polite"></div>
+    </section>
+    <section class="extracted-section">
+      <div class="section-header section-header-blue">Extracted Text from Column D</div>
+      <div class="extracted-container">
+        <textarea id="extracted-text" class="extracted-text" readonly></textarea>
+      </div>
+    </section>
+    <section class="csv-format-section">
+      <div class="section-header section-header-purple">Individual Text Segments (Column D)</div>
+      <div id="segments-list" class="segments-list">
+        <!-- Segments will be dynamically inserted here by app.js -->
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
